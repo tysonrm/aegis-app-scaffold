@@ -1,6 +1,7 @@
 var path = require('path')
 const { ModuleFederationPlugin } = require('webpack').container
 const httpNode = require('./webpack/http-node')
+const dependencies = require('./package.json').dependencies
 
 var serverConfig = {
   target: httpNode,
@@ -9,7 +10,7 @@ var serverConfig = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath:
-      'https://api.github.com?owner=module-federation&repo=microlib-example&filedir=dist&branch=master',
+      'https://api.github.com?owner=module-federation&repo=aegis-app-scaffold&filedir=dist&branch=master',
     // "http://aegis.module-federation.org:8060",
     libraryTarget: 'commonjs'
   },
@@ -58,18 +59,7 @@ var serverConfig = {
         './event-bus': './src/services/event-bus'
       },
       shared: {
-        axios: {
-          eager: true
-        },
-        'smartystreets-javascript-sdk': {
-          eager: true
-        },
-        kafkajs: {
-          eager: true
-        },
-        nanoid: {
-          eager: true
-        }
+        ...dependencies
       }
     })
   ]
