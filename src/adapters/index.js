@@ -1,10 +1,8 @@
 "use strict";
 
-export * from "./address-adapter";
-export * from "./payment-adapter";
-export * from "./shipping-adapter";
-export * from "./event-adapter";
-export * from "./inventory-adapter";
+//export * from "./adapter1";
+//export * from "./adapter2";
+
 
 /**
  * @typedef {import('../domain').Model} Model
